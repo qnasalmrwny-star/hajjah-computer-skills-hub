@@ -41,28 +41,29 @@
         /* الواجهة الرئيسية (على اليمين) */
         .main-content {
             flex: 1;
-            padding: 25px;
+            padding: 20px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
         }
 
-        /* البانر الملكي العلوي */
+        /* البانر الملكي العلوي (تم تصغيره وتنسيقه بحجم مدمج وأنيق) */
         .royal-banner {
             background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 50%, #e0f2fe 100%);
             border: 2px solid var(--royal-accent);
-            border-radius: 16px;
-            padding: 20px 15px;
+            border-radius: 12px;
+            padding: 10px 15px;
             text-align: center;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 25px rgba(29, 78, 216, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(29, 78, 216, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.9);
             position: relative;
         }
 
         .royal-crown-badge {
-            font-size: 2.2rem;
-            margin-bottom: 2px;
-            filter: drop-shadow(0 4px 8px rgba(29, 78, 216, 0.3));
+            font-size: 1.4rem;
+            margin-bottom: 0px;
+            filter: drop-shadow(0 2px 4px rgba(29, 78, 216, 0.3));
+            display: inline-block;
         }
 
         .blue-title-large {
@@ -70,64 +71,65 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Amiri', serif;
-            font-size: 1.85rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .royal-divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin: 10px 0;
+            gap: 8px;
+            margin: 4px 0;
             color: var(--royal-accent);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .royal-divider::before, .royal-divider::after {
             content: '';
-            height: 2px;
-            width: 90px;
+            height: 1px;
+            width: 60px;
             background: linear-gradient(90deg, transparent, var(--royal-accent), transparent);
         }
 
-        /* أسماء المهندس والدكتور */
+        /* أسماء المهندس والدكتور بحجم متناسق ومدمج */
         .author-card {
-            margin-top: 10px;
+            margin-top: 4px;
             display: flex;
-            flex-direction: column;
-            gap: 6px;
+            flex-wrap: wrap;
+            gap: 10px;
             align-items: center;
+            justify-content: center;
         }
 
         .author-name {
             font-family: 'Amiri', serif;
-            font-size: 1.4rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #0f172a;
             background: rgba(29, 78, 216, 0.08);
-            padding: 4px 20px;
-            border-radius: 30px;
+            padding: 2px 14px;
+            border-radius: 20px;
             border: 1px solid var(--royal-border);
             display: inline-block;
         }
 
         .supervisor-name {
             font-family: 'Amiri', serif;
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--royal-blue);
-            margin-top: 2px;
         }
 
-        /* الواجهة الفرعية (القائمة الجانبية) */
+        /* الواجهة الفرعية (تم زيادة المساحة السفلية للشريط ليعرض كافة الأزرار) */
         .sidebar {
             width: 230px;
             min-width: 190px;
             max-width: 250px;
+            height: 100vh;
             background-color: var(--sidebar-bg);
-            padding: 18px 10px;
+            padding: 15px 10px 40px 10px; /* زيادة التعبئة السفلية لضمان ظهور الزر الأخير */
             box-shadow: -4px 0 20px rgba(15, 43, 92, 0.08);
             overflow-y: auto;
             border-right: 2px solid var(--royal-border);
@@ -141,9 +143,9 @@
             font-family: 'Amiri', serif;
             color: var(--royal-blue);
             border-bottom: 2px solid var(--royal-border);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            font-size: 1.15rem;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -156,18 +158,19 @@
             background: linear-gradient(145deg, #ffffff, #f1f5f9);
             color: var(--text-dark);
             border: 1px solid var(--royal-border);
-            padding: 11px 8px;
-            margin-bottom: 10px;
+            padding: 9px 6px;
+            margin-bottom: 8px;
             border-radius: 8px;
             cursor: pointer;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.83rem;
             font-weight: 700;
             transition: all 0.3s ease;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            flex-shrink: 0;
         }
 
         .lesson-btn:hover {
@@ -186,14 +189,15 @@
             box-shadow: 0 4px 12px rgba(15, 43, 92, 0.35);
         }
 
-        /* زر الاختبار المتميز بالألوان الخاصة */
+        /* زر الاختبار الواضح والمتميز في الأسفل */
         .exam-sidebar-btn {
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
             color: #ffffff !important;
             border: 2px solid #93c5fd !important;
-            font-size: 0.95rem !important;
-            padding: 12px 8px !important;
-            margin-top: 5px;
+            font-size: 0.88rem !important;
+            padding: 11px 6px !important;
+            margin-top: 6px;
+            margin-bottom: 25px !important; /* مساحة حرة تحت الزر ليكون كاملاً وواضحاً */
         }
 
         .exam-sidebar-btn:hover {
@@ -205,9 +209,9 @@
         .code-container {
             background-color: var(--code-bg);
             border-radius: 12px;
-            padding: 18px;
+            padding: 16px;
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             border: 2px solid var(--royal-accent);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18), 0 0 15px rgba(29, 78, 216, 0.2);
         }
@@ -216,14 +220,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
             border-bottom: 1px dashed rgba(147, 197, 253, 0.3);
         }
 
         .code-title {
             color: #bfdbfe;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -237,18 +241,18 @@
             font-family: 'Consolas', 'Courier New', monospace;
             color: #e2e8f0;
             overflow-x: auto;
-            font-size: 0.92rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.55;
         }
 
         .copy-btn {
             background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%);
             color: #ffffff;
             border: 1px solid #93c5fd;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 2px 6px rgba(0,0,0,0.3);
@@ -262,11 +266,11 @@
         /* صندوق الشرح والدروس التفصيلية */
         .explanation-box {
             background-color: var(--card-bg);
-            padding: 22px;
+            padding: 20px;
             border-radius: 12px;
             border-right: 5px solid var(--royal-accent);
-            line-height: 1.85;
-            font-size: 0.95rem;
+            line-height: 1.8;
+            font-size: 0.93rem;
             border: 1px solid var(--royal-border);
             box-shadow: 0 6px 20px rgba(15, 43, 92, 0.06);
             position: relative;
@@ -275,10 +279,10 @@
         .explanation-box h3 {
             color: var(--royal-blue);
             font-family: 'Amiri', serif;
-            font-size: 1.35rem;
-            margin-bottom: 14px;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
             border-bottom: 1px dashed var(--royal-border);
-            padding-bottom: 6px;
+            padding-bottom: 5px;
         }
 
         .explanation-box ul {
@@ -287,19 +291,19 @@
         }
 
         .explanation-box li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .welcome-message {
             text-align: center;
-            margin-top: 5%;
-            padding: 35px;
+            margin-top: 3%;
+            padding: 30px;
             background: #ffffff;
             border-radius: 15px;
             border: 1px dashed var(--royal-border);
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             color: #334155;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         /* ================== تنسيق مربع الاختبار النهائي ================== */
@@ -307,10 +311,10 @@
             background: #ffffff;
             border: 2px solid var(--royal-accent);
             border-radius: 16px;
-            padding: 30px 25px;
+            padding: 25px 20px;
             box-shadow: 0 10px 30px rgba(15, 43, 92, 0.12);
             position: relative;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .exam-header-info {
@@ -318,21 +322,21 @@
             justify-content: space-between;
             align-items: center;
             background: var(--royal-light-blue);
-            padding: 10px 18px;
+            padding: 8px 15px;
             border-radius: 10px;
             border: 1px solid var(--royal-border);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-weight: 700;
             color: var(--royal-blue);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .exam-question-text {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #0f172a;
-            margin-bottom: 25px;
-            line-height: 1.7;
+            margin-bottom: 20px;
+            line-height: 1.65;
             border-right: 4px solid var(--royal-accent);
             padding-right: 12px;
         }
@@ -340,16 +344,16 @@
         .exam-options-grid {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .exam-option-btn {
             background: #ffffff;
             border: 2px solid var(--royal-border);
             color: var(--text-dark);
-            padding: 14px 18px;
+            padding: 12px 16px;
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             text-align: right;
             cursor: pointer;
@@ -370,18 +374,18 @@
         /* كرت إدخال الاسم للبدء */
         .exam-start-box {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 15px;
         }
 
         .student-input {
             width: 100%;
-            max-width: 400px;
-            padding: 12px 18px;
+            max-width: 380px;
+            padding: 10px 15px;
             border: 2px solid var(--royal-border);
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-family: 'Cairo', sans-serif;
-            margin: 18px 0 22px 0;
+            margin: 15px 0 20px 0;
             outline: none;
             transition: border 0.3s;
             text-align: center;
@@ -396,8 +400,8 @@
             background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%);
             color: #ffffff;
             border: none;
-            padding: 12px 35px;
-            font-size: 1.1rem;
+            padding: 10px 30px;
+            font-size: 1rem;
             font-weight: 700;
             border-radius: 30px;
             cursor: pointer;
@@ -414,19 +418,19 @@
             background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
             border: 3px solid var(--royal-accent);
             border-radius: 20px;
-            padding: 35px 25px;
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 12px 35px rgba(15, 43, 92, 0.18);
         }
 
         .result-student-name {
             font-family: 'Amiri', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--royal-dark);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-bottom: 2px solid var(--royal-border);
-            padding-bottom: 10px;
+            padding-bottom: 8px;
             display: inline-block;
         }
 
@@ -434,15 +438,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            margin: 20px 0;
+            gap: 30px;
+            margin: 18px 0;
             flex-wrap: wrap;
         }
 
         .stat-badge {
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
         }
 
@@ -461,13 +465,13 @@
         .result-score-banner {
             background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 100%);
             color: #ffffff;
-            padding: 18px 30px;
+            padding: 15px 25px;
             border-radius: 15px;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-family: 'Amiri', serif;
             font-weight: 700;
-            margin: 25px auto 15px auto;
-            max-width: 450px;
+            margin: 20px auto 12px auto;
+            max-width: 420px;
             box-shadow: 0 8px 25px rgba(29, 78, 216, 0.35);
         }
 
@@ -475,33 +479,33 @@
         @media (max-width: 600px) {
             .sidebar {
                 width: 140px;
-                padding: 12px 5px;
+                padding: 10px 4px 35px 4px;
             }
             .lesson-btn {
-                font-size: 0.78rem;
-                padding: 9px 4px;
+                font-size: 0.76rem;
+                padding: 8px 3px;
             }
             .main-content {
-                padding: 12px;
+                padding: 10px;
             }
             .blue-title-large {
-                font-size: 1.35rem;
+                font-size: 1.15rem;
             }
             .author-name {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
             }
             .supervisor-name {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             .result-stats-row {
-                gap: 15px;
+                gap: 10px;
             }
             .stat-badge {
-                font-size: 0.95rem;
-                padding: 8px 15px;
+                font-size: 0.88rem;
+                padding: 6px 12px;
             }
             .result-score-banner {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             pre {
                 font-size: 0.82rem;
@@ -514,14 +518,14 @@
     <!-- الواجهة الرئيسية (على اليمين) -->
     <div class="main-content">
         
-        <!-- البانر التكريمي الملكي -->
+        <!-- البانر التكريمي الملكي المدمج -->
         <div class="royal-banner">
             <div class="royal-crown-badge">👑</div>
             <h1 class="blue-title-large">المكتبة الملكية الشاملة لمهارات الحاسوب</h1>
             
             <div class="author-card">
-                <div class="author-name">✨ تم إعداد هذا الموقع من قبل المهندس / يوسف وليد المروني ✨</div>
-                <div class="supervisor-name">👑 تحت إشراف الدكتور / حسن العليي 👑</div>
+                <div class="author-name">✨ إعداد: المهندس / يوسف وليد المروني ✨</div>
+                <div class="supervisor-name">👑 إشراف: الدكتور / حسن العليي 👑</div>
             </div>
 
             <div class="royal-divider">✦ 🔷 مرجع تطبيقات الحاسوب والمهارات المكتبية والاختبار النهائي 🔷 ✦</div>
@@ -531,7 +535,7 @@
         <div id="contentArea">
             <div class="welcome-message" id="welcomeMsg">
                 👑 <b>أهلاً بكم في الدليل التطبيقي الكامل لمهارات الحاسوب والبرامج المكتبية.</b><br>
-                <small style="color: #475569; margin-top: 10px; display: inline-block;">👈 اختر درساً من الفهرس الجانبي، أو اضغط على <b>اختبار نهائي</b> لتقييم مهاراتك الشاملة.</small>
+                <small style="color: #475569; margin-top: 8px; display: inline-block;">👈 اختر درساً من الفهرس الجانبي، أو اضغط على <b>اختبار نهائي</b> لتقييم مهاراتك الشاملة.</small>
             </div>
             
             <!-- عرض الدروس -->
@@ -553,10 +557,10 @@
                 
                 <!-- 1. شاشة البداية وكتابة الاسم -->
                 <div id="examStartBox" class="exam-card exam-start-box">
-                    <h2 style="color: var(--royal-blue); font-family: 'Amiri', serif; font-size: 1.8rem;">👑 الاختبار النهائي الشامل لمهارات الحاسوب</h2>
-                    <p style="color: #475569; margin-top: 8px;">يتكون الاختبار من <b>50 سؤالاً</b> (اختيار من متعدد وصح وخطأ). درجة كل سؤال 2، والدرجة الكلية من 100.</p>
+                    <h2 style="color: var(--royal-blue); font-family: 'Amiri', serif; font-size: 1.6rem;">👑 الاختبار النهائي الشامل لمهارات الحاسوب</h2>
+                    <p style="color: #475569; margin-top: 6px; font-size: 0.92rem;">يتكون الاختبار من <b>50 سؤالاً</b> (اختيار من متعدد وصح وخطأ). درجة كل سؤال 2، والدرجة الكلية من 100.</p>
                     <br>
-                    <label style="font-weight: 700; color: var(--royal-dark); font-size: 1.05rem;">الرجاء كتابة اسمك الثلاثي لتبدأ الاختبار:</label><br>
+                    <label style="font-weight: 700; color: var(--royal-dark); font-size: 1rem;">الرجاء كتابة اسمك الثلاثي لتبدأ الاختبار:</label><br>
                     <input type="text" id="studentNameInput" class="student-input" placeholder="اكتب اسمك الثلاثي هنا..." autocomplete="off">
                     <br>
                     <button class="start-exam-btn" onclick="startExam()">🚀 بدء الاختبار الآن</button>
@@ -579,7 +583,7 @@
                 <!-- 3. مربع النتيجة النهائية الكبيرة -->
                 <div id="examResultBox" class="result-card" style="display: none;">
                     <div class="royal-crown-badge">🏆</div>
-                    <h2 style="color: var(--royal-accent); font-size: 1.3rem;">نتيجة الاختبار النهائي الشامل</h2>
+                    <h2 style="color: var(--royal-accent); font-size: 1.2rem;">نتيجة الاختبار النهائي الشامل</h2>
                     
                     <div class="result-student-name" id="displayStudentName">
                         الاسم: يوسف وليد المروني
@@ -589,7 +593,7 @@
                         <div class="stat-badge stat-correct" id="displayCorrectCount">
                             ✅ الإجابات الصحيحة: 0
                         </div>
-                        <div style="width: 20px;"></div>
+                        <div style="width: 15px;"></div>
                         <div class="stat-badge stat-wrong" id="displayWrongCount">
                             ❌ الإجابات الخاطئة: 0
                         </div>
@@ -599,7 +603,7 @@
                         درجة الطالب النهائية: 0 / 100
                     </div>
 
-                    <button class="start-exam-btn" style="margin-top: 20px; background: linear-gradient(135deg, #15803d, #22c55e);" onclick="resetExamToStart()">🔄 إعـادة الاخـتبار</button>
+                    <button class="start-exam-btn" style="margin-top: 15px; background: linear-gradient(135deg, #15803d, #22c55e);" onclick="resetExamToStart()">🔄 إعـادة الاخـتبار</button>
                 </div>
 
             </div>
@@ -698,7 +702,7 @@
                 title: "8. إكسل: الدالة الشرطية IF",
                 code: "صيغة الدالة الشائعة:\n=IF(Logical_Test, Value_if_true, Value_if_false)\n\nمثال تقدير الناجح والراسب:\n=IF(B2>=50, \"ناجح\", \"راسب\")",
                 explanation: "<h3>📜 الشرح المكثف لدالة اتخاذ القرار =IF الشرطية:</h3>" +
-                    "<b>وظيفة دالة IF:</b> تقوم بفحص شرط معين؛ إذا تحقق الشرط تُرجع نتيجة أعدتها أنت مسبقاً، وإذا لم يتحقق تُرجع نتيجة أخرى.<br><br>" +
+                    "<b>وظيفة دالة IF:</b> تقوم بفحص شرط معين؛ إذا تحقق الشرط تُرجع نتيجة أعدتها أنت مسبقاً، وإذا لم تحقق تُرجع نتيجة أخرى.<br><br>" +
                     "<b>مكونات الدالة الثلاثة:</b><br>" +
                     "1. <b>الشرط (Logical Test):</b> مثل مقارنة درجة الطالب <code>B2 >= 50</code>.<br>" +
                     "2. <b>قيمة النجاح (Value if true):</b> الكلمة أو القيمة التي تظهر عند تحقق الشرط مثل <code>\"ناجح\"</code>.<br>" +
@@ -778,11 +782,11 @@
             { q: "الدالة الحسابية المخصصة لحساب مجموع القيم في نطاق من الخلايا هي:", opts: ["=AVERAGE", "=COUNT", "=SUM", "=MAX"], correct: 2 },
             { q: "الدالة =AVERAGE(A1:A10) تقوم بحساب المتوسط الحسابي للقيم المحددة.", opts: ["صح", "خطأ"], correct: 0 },
             { q: "تستخرج الدالة =MAX أعلى قيمة رقمية، بينما الدالة =MIN تستخرج أقل قيمة.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "الدالة الشرطية المستخدمة لاتخاذ القرار واختبار الشروط في إكسل هي:", opts: ["=IF", "=SUMIF", "=COUNTIF", "=VLOOKUP"], correct: 0 },
+            { q: "الدالة الشرطية المستخدمة لاتخاذ القرار وااختبار الشروط في إكسل هي:", opts: ["=IF", "=SUMIF", "=COUNTIF", "=VLOOKUP"], correct: 0 },
             { q: "الصيغة الصحيحة لكتابة دالة IF لإظهار 'ناجح' إذا كانت القيمة أكبر من أو تساوي 50 هي:", opts: ["=IF(A1>=50, \"ناجح\", \"راسب\")", "=IF A1>=50 THEN \"ناجح\"", "=IF(A1=50: \"ناجح\")", "=IF(ناجح, راسب, A1>=50)"], correct: 0 },
             { q: "تتكون دالة IF الشرطية في إكسل من 3 أجزاء: الشرط، قيمة التحقق، وقيمة عدم التحقق.", opts: ["صح", "خطأ"], correct: 0 },
             { q: "يجب وضع النصوص المكتوبة داخل معاملات الدوال في إكسل بين علامتي تنصيص مزدوجة \" \".", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تلوين الخلايا تلقائياً بناءً على قيمها (مثل تلوين الدرجات القليلة بالأحمر) يُسمى التنسيق الشرطي.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تلوين الخلايا تلقائياً بناءً على قيمتها (مثل تلوين الدرجات القليلة بالأحمر) يُسمى التنسيق الشرطي.", opts: ["صح", "خطأ"], correct: 0 },
             { q: "تحويل الأرقام إلى رسومات بيانية مرئية في إكسل يتم من تبويب إدراج ثم اختيار المخططات.", opts: ["صح", "خطأ"], correct: 0 },
             { q: "يُستخدم المخطط الشريطي (Column Chart) لمقارنة القيم والبيانات بصرياً بين العناصر.", opts: ["صح", "خطأ"], correct: 0 },
             { q: "التنسيق الشرطي يقوم بحذف البيانات المخزنة في الخلايا إذا كانت غير مطابقة.", opts: ["صح", "خطأ"], correct: 1 },
