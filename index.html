@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المكتبة الملكية لمهارات الحاسوب | الأزرق الملكي</title>
+    <title>المكتبة الملكية لمهارات الحاسوب | الأزرق الملكي والاختبار النهائي</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,700&family=Cairo:wght@400;600;700;800&display=swap');
 
@@ -47,7 +47,7 @@
             flex-direction: column;
         }
 
-        /* البانر الملكي العلوي الأزرق والأبيض */
+        /* البانر الملكي العلوي */
         .royal-banner {
             background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 50%, #e0f2fe 100%);
             border: 2px solid var(--royal-accent);
@@ -92,7 +92,7 @@
             background: linear-gradient(90deg, transparent, var(--royal-accent), transparent);
         }
 
-        /* أسماء المهندس والدكتور بالخط الكبير والزخرفة الملكية الزرقاء */
+        /* أسماء المهندس والدكتور */
         .author-card {
             margin-top: 10px;
             display: flex;
@@ -121,11 +121,11 @@
             margin-top: 2px;
         }
 
-        /* الواجهة الفرعية الجانبية باللون الأزرق والكتل البيضاء */
+        /* الواجهة الفرعية (القائمة الجانبية) */
         .sidebar {
-            width: 220px;
-            min-width: 180px;
-            max-width: 240px;
+            width: 230px;
+            min-width: 190px;
+            max-width: 250px;
             background-color: var(--sidebar-bg);
             padding: 18px 10px;
             box-shadow: -4px 0 20px rgba(15, 43, 92, 0.08);
@@ -186,7 +186,22 @@
             box-shadow: 0 4px 12px rgba(15, 43, 92, 0.35);
         }
 
-        /* تنسيق مربع الاختصارات والصيغ (أزرق غامق ملكي) */
+        /* زر الاختبار المتميز بالألوان الخاصة */
+        .exam-sidebar-btn {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
+            color: #ffffff !important;
+            border: 2px solid #93c5fd !important;
+            font-size: 0.95rem !important;
+            padding: 12px 8px !important;
+            margin-top: 5px;
+        }
+
+        .exam-sidebar-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4) !important;
+        }
+
+        /* تنسيق كروت الدروس والاختصارات */
         .code-container {
             background-color: var(--code-bg);
             border-radius: 12px;
@@ -287,6 +302,175 @@
             font-size: 1.05rem;
         }
 
+        /* ================== تنسيق مربع الاختبار النهائي ================== */
+        .exam-card {
+            background: #ffffff;
+            border: 2px solid var(--royal-accent);
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px rgba(15, 43, 92, 0.12);
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .exam-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--royal-light-blue);
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--royal-border);
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--royal-blue);
+            font-size: 0.95rem;
+        }
+
+        .exam-question-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            border-right: 4px solid var(--royal-accent);
+            padding-right: 12px;
+        }
+
+        .exam-options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .exam-option-btn {
+            background: #ffffff;
+            border: 2px solid var(--royal-border);
+            color: var(--text-dark);
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: right;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .exam-option-btn:hover {
+            border-color: var(--royal-accent);
+            background: var(--royal-light-blue);
+            color: var(--royal-blue);
+            transform: translateX(-4px);
+        }
+
+        /* كرت إدخال الاسم للبدء */
+        .exam-start-box {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .student-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 18px;
+            border: 2px solid var(--royal-border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            margin: 18px 0 22px 0;
+            outline: none;
+            transition: border 0.3s;
+            text-align: center;
+        }
+
+        .student-input:focus {
+            border-color: var(--royal-accent);
+            box-shadow: 0 0 10px rgba(29, 78, 216, 0.2);
+        }
+
+        .start-exam-btn {
+            background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%);
+            color: #ffffff;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(29, 78, 216, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .start-exam-btn:hover {
+            transform: scale(1.04);
+        }
+
+        /* كرت إظهار النتيجة النهائية الكبيرة */
+        .result-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            border: 3px solid var(--royal-accent);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(15, 43, 92, 0.18);
+        }
+
+        .result-student-name {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--royal-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--royal-border);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .result-stats-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .stat-correct {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+        }
+
+        .stat-wrong {
+            background: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+        }
+
+        .result-score-banner {
+            background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 100%);
+            color: #ffffff;
+            padding: 18px 30px;
+            border-radius: 15px;
+            font-size: 1.8rem;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            margin: 25px auto 15px auto;
+            max-width: 450px;
+            box-shadow: 0 8px 25px rgba(29, 78, 216, 0.35);
+        }
+
         /* تحسين العرض للهواتف المحمولة */
         @media (max-width: 600px) {
             .sidebar {
@@ -309,6 +493,16 @@
             .supervisor-name {
                 font-size: 1rem;
             }
+            .result-stats-row {
+                gap: 15px;
+            }
+            .stat-badge {
+                font-size: 0.95rem;
+                padding: 8px 15px;
+            }
+            .result-score-banner {
+                font-size: 1.3rem;
+            }
             pre {
                 font-size: 0.82rem;
             }
@@ -320,7 +514,7 @@
     <!-- الواجهة الرئيسية (على اليمين) -->
     <div class="main-content">
         
-        <!-- البانر التكريمي الملكي الأزرق والأبيض -->
+        <!-- البانر التكريمي الملكي -->
         <div class="royal-banner">
             <div class="royal-crown-badge">👑</div>
             <h1 class="blue-title-large">المكتبة الملكية الشاملة لمهارات الحاسوب</h1>
@@ -330,16 +524,17 @@
                 <div class="supervisor-name">👑 تحت إشراف الدكتور / حسن العليي 👑</div>
             </div>
 
-            <div class="royal-divider">✦ 🔷 مرجع تطبيقات الحاسوب والمهارات المكتبية من الصفر للاحتراف 🔷 ✦</div>
+            <div class="royal-divider">✦ 🔷 مرجع تطبيقات الحاسوب والمهارات المكتبية والاختبار النهائي 🔷 ✦</div>
         </div>
 
-        <!-- منطقة عرض الدرس -->
+        <!-- منطقة عرض الدروس والاختبار -->
         <div id="contentArea">
             <div class="welcome-message" id="welcomeMsg">
                 👑 <b>أهلاً بكم في الدليل التطبيقي الكامل لمهارات الحاسوب والبرامج المكتبية.</b><br>
-                <small style="color: #475569; margin-top: 10px; display: inline-block;">👈 اختر درساً من الفهرس الجانبي لعرض الاختصارات والشرح المكثف خطوة بخطوة.</small>
+                <small style="color: #475569; margin-top: 10px; display: inline-block;">👈 اختر درساً من الفهرس الجانبي، أو اضغط على <b>اختبار نهائي</b> لتقييم مهاراتك الشاملة.</small>
             </div>
             
+            <!-- عرض الدروس -->
             <div id="lessonContent" style="display: none;">
                 <div class="code-container">
                     <div class="code-header">
@@ -352,6 +547,62 @@
                     <!-- الشرح الشامل سيظهر هنا -->
                 </div>
             </div>
+
+            <!-- عرض الاختبار النهائي (مربع واحد فقط) -->
+            <div id="examContent" style="display: none;">
+                
+                <!-- 1. شاشة البداية وكتابة الاسم -->
+                <div id="examStartBox" class="exam-card exam-start-box">
+                    <h2 style="color: var(--royal-blue); font-family: 'Amiri', serif; font-size: 1.8rem;">👑 الاختبار النهائي الشامل لمهارات الحاسوب</h2>
+                    <p style="color: #475569; margin-top: 8px;">يتكون الاختبار من <b>50 سؤالاً</b> (اختيار من متعدد وصح وخطأ). درجة كل سؤال 2، والدرجة الكلية من 100.</p>
+                    <br>
+                    <label style="font-weight: 700; color: var(--royal-dark); font-size: 1.05rem;">الرجاء كتابة اسمك الثلاثي لتبدأ الاختبار:</label><br>
+                    <input type="text" id="studentNameInput" class="student-input" placeholder="اكتب اسمك الثلاثي هنا..." autocomplete="off">
+                    <br>
+                    <button class="start-exam-btn" onclick="startExam()">🚀 بدء الاختبار الآن</button>
+                </div>
+
+                <!-- 2. مربع السؤال التفاعلي التلقائي -->
+                <div id="examQuestionBox" class="exam-card" style="display: none;">
+                    <div class="exam-header-info">
+                        <span id="questionProgress">السؤال 1 من 50</span>
+                        <span>درجة السؤال: 2</span>
+                    </div>
+                    <div class="exam-question-text" id="questionText">
+                        <!-- نص السؤال هنا -->
+                    </div>
+                    <div class="exam-options-grid" id="optionsContainer">
+                        <!-- أزرار الاختيارات تظهر هنا -->
+                    </div>
+                </div>
+
+                <!-- 3. مربع النتيجة النهائية الكبيرة -->
+                <div id="examResultBox" class="result-card" style="display: none;">
+                    <div class="royal-crown-badge">🏆</div>
+                    <h2 style="color: var(--royal-accent); font-size: 1.3rem;">نتيجة الاختبار النهائي الشامل</h2>
+                    
+                    <div class="result-student-name" id="displayStudentName">
+                        الاسم: يوسف وليد المروني
+                    </div>
+
+                    <div class="result-stats-row">
+                        <div class="stat-badge stat-correct" id="displayCorrectCount">
+                            ✅ الإجابات الصحيحة: 0
+                        </div>
+                        <div style="width: 20px;"></div>
+                        <div class="stat-badge stat-wrong" id="displayWrongCount">
+                            ❌ الإجابات الخاطئة: 0
+                        </div>
+                    </div>
+
+                    <div class="result-score-banner" id="displayFinalScore">
+                        درجة الطالب النهائية: 0 / 100
+                    </div>
+
+                    <button class="start-exam-btn" style="margin-top: 20px; background: linear-gradient(135deg, #15803d, #22c55e);" onclick="resetExamToStart()">🔄 إعـادة الاخـتبار</button>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -359,10 +610,11 @@
     <div class="sidebar">
         <h2>👑 فهرس المهارات</h2>
         <div id="buttonsList"></div>
+        <button class="lesson-btn exam-sidebar-btn" onclick="showExamInterface()">👑 اختبار نهائي (50 سؤال)</button>
     </div>
 
     <script>
-        // منهجية دروس مهارات الحاسوب المكثفة والمبوبة بالترتيب
+        // منهَجية دروس مهارات الحاسوب
         const lessons = {
             "lesson1": {
                 title: "1. أساسيات Windows والملفات",
@@ -381,7 +633,7 @@
             "lesson2": {
                 title: "2. الاختصارات والتحديد السريع",
                 code: "Ctrl + A  : تحديد جميع العناصر/النصوص\nCtrl + C  : نسخ (Copy)\nCtrl + X  : قص (Cut)\nCtrl + V  : لصق (Paste)\nCtrl + Z  : تراجع عن آخر عمل (Undo)\nCtrl + Y  : إعادة العمل المتراجع عنه (Redo)",
-                explanation: "<h3>📜 الشرح المكثف للتحكم وااختصارات لوحة المفاتيح:</h3>" +
+                explanation: "<h3>📜 الشرح المكثف للتحكم واختصارات لوحة المفاتيح:</h3>" +
                     "<b>أهمية الاختصارات:</b> اختصار الوقت وزيادة الإنتاجية والسرعة أثناء كتابة البحوث والتعامل مع البيانات.<br><br>" +
                     "<b>تحديد العناصر الاحترافي:</b><br>" +
                     "• <b>تحديد عناصر متجاورة:</b> اضغط على العنصر الأول، ثم اضغط باستمرار على زر <code>Shift</code> واضغط على العنصر الأخير.<br>" +
@@ -496,12 +748,82 @@
             }
         };
 
+        // ================== قاعدة أسئلة الاختبار النهائي (50 سؤال) ==================
+        const examQuestions = [
+            { q: "أي من الاختصارات التالية يُستخدم لإنشاء مجلد جديد في نظام Windows؟", opts: ["Ctrl + N", "Ctrl + Shift + N", "Alt + N", "Shift + F10"], correct: 1 },
+            { q: "ضغط المفاتيح Shift + Delete يقوم بحذف الملف نهائياً دون إرساله لسلة المهملات.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "الامتداد الخاص بملفات المستندات لبرنامج مايكروسوفت وورد هو:", opts: [".xlsx", ".pptx", ".docx", ".pdf"], correct: 2 },
+            { q: "المفتاح F2 يُستخدم لإعادة تسمية الملف أو المجلد المحدد في نظام التشغيل.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "الاختصار المسؤول عن التراجع عن آخر عمل تم القيام به (Undo) هو:", opts: ["Ctrl + C", "Ctrl + Z", "Ctrl + Y", "Ctrl + X"], correct: 1 },
+            { q: "لتحديد عناصر غير متجورة (متباعدة) في مجلد، نضغط باستمرار أثناء النقر على مفتاح:", opts: ["Shift", "Alt", "Ctrl", "Tab"], correct: 2 },
+            { q: "الاختصار Ctrl + A يُستخدم لتحديد كافة النصوص أو العناصر في الصفحات والمستندات.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "التنقل السريع المباشر بين النوافذ المفتوحة يتم عن طريق ضغط Alt + Tab.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "لجعل النص المحدد عريضاً ومظللاً (Bold) في برنامج وورد نستخدم الاختصار:", opts: ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + E"], correct: 0 },
+            { q: "محاذاة النص في منتصف الصفحة في برنامج وورد تتم باستخدام الاختصار:", opts: ["Ctrl + R", "Ctrl + L", "Ctrl + E", "Ctrl + M"], correct: 2 },
+            { q: "الاختصار Ctrl + U يضع خطاً تحت النص المحدد.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "حجم الخط القياسي المعتمد لنصوص الفقرات في الأبحاث والتقارير الأكاديمية هو:", opts: ["10", "14", "22", "36"], correct: 1 },
+            { q: "إدراج جدول جديد في مستند وورد يتم من خلال تبويب:", opts: ["الصفحة الرئيسية", "إدراج (Insert)", "تصميم", "عرض"], correct: 1 },
+            { q: "لتمكين تحريك الصورة بحرية فوق النصوص وفي أي مكان في المستند، نختار التفاف النص:", opts: ["مضمون مع النص", "مشدود (Tight)", "أعلى وأسفل", "بلا التفاف"], correct: 1 },
+            { q: "يمكن تعديل أنماط وألوان الجدول في وورد من تبويب 'تصميم الجدول' بعد تحديده.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "محاذاة النص داخل خلايا الجدول في المنتصف العمودي والأفقي تماماً تتم عبر 'محاذاة الخلية'.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "لإنشاء فهرس محتويات آلي (Table of Contents) في وورد يجب أولاً تطبيق:", opts: ["تغيير لون الخط", "أنماط العناوين (Heading 1, Heading 2)", "إدراج صورة", "تغيير الهوامش"], correct: 1 },
+            { q: "إدراج صفحة غلاف جاهزة ومصممة للمستند يتم من قائمة إدراج ثم اختيار 'صفحة غلاف'.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "الانتقال فوراً لصفحة جديدة وإنشاء فاصل صفحات يتم بواسطة الاختصار Ctrl + Enter.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "بعد إضافة عناوين جديدة بالمستند، يتحدث الفهرس التلقائي عبر الضغط الأيمن ثم 'تحديث الحقل'.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تتكون ورقة العمل في إكسل من صفوف وأعمدة، ويُرمز للأعمدة بالأحرف الإنجليزية (A, B, C...).", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "الخلية الناتجة عن تقاطع العمود B مع الصف 5 تُسمى في إكسل:", opts: ["5B", "B5", "B-5", "CELL_5"], correct: 1 },
+            { q: "لدمج عدة خلايا في إكسل وجعل النص في المنتصف نستخدم أمر 'دمج وتوسيط'.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "خيار 'التفاف النص' (Wrap Text) في إكسل يسمح بعرض النص الطويل في أسطر متعددة داخل نفس الخلية.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "أي دالة أو صيغة حسابية في برنامج إكسل يجب أن تبدأ دائماً برمز:", opts: ["#", "$", "=", "@"], correct: 2 },
+            { q: "الدالة الحسابية المخصصة لحساب مجموع القيم في نطاق من الخلايا هي:", opts: ["=AVERAGE", "=COUNT", "=SUM", "=MAX"], correct: 2 },
+            { q: "الدالة =AVERAGE(A1:A10) تقوم بحساب المتوسط الحسابي للقيم المحددة.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تستخرج الدالة =MAX أعلى قيمة رقمية، بينما الدالة =MIN تستخرج أقل قيمة.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "الدالة الشرطية المستخدمة لاتخاذ القرار واختبار الشروط في إكسل هي:", opts: ["=IF", "=SUMIF", "=COUNTIF", "=VLOOKUP"], correct: 0 },
+            { q: "الصيغة الصحيحة لكتابة دالة IF لإظهار 'ناجح' إذا كانت القيمة أكبر من أو تساوي 50 هي:", opts: ["=IF(A1>=50, \"ناجح\", \"راسب\")", "=IF A1>=50 THEN \"ناجح\"", "=IF(A1=50: \"ناجح\")", "=IF(ناجح, راسب, A1>=50)"], correct: 0 },
+            { q: "تتكون دالة IF الشرطية في إكسل من 3 أجزاء: الشرط، قيمة التحقق، وقيمة عدم التحقق.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "يجب وضع النصوص المكتوبة داخل معاملات الدوال في إكسل بين علامتي تنصيص مزدوجة \" \".", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تلوين الخلايا تلقائياً بناءً على قيمها (مثل تلوين الدرجات القليلة بالأحمر) يُسمى التنسيق الشرطي.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تحويل الأرقام إلى رسومات بيانية مرئية في إكسل يتم من تبويب إدراج ثم اختيار المخططات.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "يُستخدم المخطط الشريطي (Column Chart) لمقارنة القيم والبيانات بصرياً بين العناصر.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "التنسيق الشرطي يقوم بحذف البيانات المخزنة في الخلايا إذا كانت غير مطابقة.", opts: ["صح", "خطأ"], correct: 1 },
+            { q: "إضافة شريحة جديدة في عرض مايكروسوفت باوربوينت تتم باستخدام الاختصار:", opts: ["Ctrl + N", "Ctrl + M", "Ctrl + S", "Ctrl + P"], correct: 1 },
+            { q: "لبدء عرض الشرائح من الشريحة الأولى على كامل الشاشة نضغط على مفتاح:", opts: ["F1", "F5", "F12", "Esc"], correct: 1 },
+            { q: "بدء عرض الشرائح التقديمية من الشريحة الحالية يتم بالضغط على Shift + F5.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تنص قاعدة 6×6 في باوربوينت على عدم وضع أكثر من 6 أسطر في الشريحة تجنباً للازدحام.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "المؤثرات البصرية التي تظهر أثناء الانتقال من شريحة إلى شريحة أخرى تُسمى الانتقالات (Transitions).", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "تحريك النصوص والصور والأشكال داخل الشريحة نفسها يسمى حركات (Animations).", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "خيارات التأثير (Effect Options) تسمح بتعديل اتجاه وزاوية الحركة في باوربوينت.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "يُفضل استخدام حركات ومؤثرات كثيرة ومعقدة جداً في العروض الأكاديمية الرسمية.", opts: ["صح", "خطأ"], correct: 1 },
+            { q: "للبحث في محرك البحث جوجل عن ملفات بصيغة PDF فقط نكتب الموجه المتقدم:", opts: ["type=pdf", "filetype:pdf", ".pdf search", "pdf:all"], correct: 1 },
+            { q: "محرك البحث الأكاديمي المخصص من جوجل للوصول للأبحاث والمقالات العلمية المعتمدة هو:", opts: ["Google Images", "Google Scholar", "Google News", "Google Books"], correct: 1 },
+            { q: "لحفظ المستند بصيغة PDF غير قابلة للتعديل نضغط F12 للفظ باسم ونختار النوع PDF.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "صيغة الملفات PDF تحافظ على تنسيق الخطوط والصور والمستند كما هو في كافة الأجهزة.", opts: ["صح", "خطأ"], correct: 0 },
+            { q: "محرك البحث العلمي Google Scholar مخصص للبحث عن الأغاني والمقاطع المرئية الترفيهية.", opts: ["صح", "خطأ"], correct: 1 },
+            { q: "الاختصار Ctrl + Shift + N أنشأ مجلداً جديداً في نظام التشغيل وورد وإكسل.", opts: ["صح", "خطأ"], correct: 0 }
+        ];
+
+        // العناصر
         const buttonsList = document.getElementById('buttonsList');
         const welcomeMsg = document.getElementById('welcomeMsg');
         const lessonContent = document.getElementById('lessonContent');
+        const examContent = document.getElementById('examContent');
         const codeBlock = document.getElementById('codeBlock');
         const explanationBlock = document.getElementById('explanationBlock');
+
+        // عناصر الاختبار
+        const examStartBox = document.getElementById('examStartBox');
+        const examQuestionBox = document.getElementById('examQuestionBox');
+        const examResultBox = document.getElementById('examResultBox');
+        const studentNameInput = document.getElementById('studentNameInput');
+        const questionProgress = document.getElementById('questionProgress');
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+
         let currentCode = "";
+        let studentName = "";
+        let currentQuestionIdx = 0;
+        let correctAnswersCount = 0;
+        let wrongAnswersCount = 0;
 
         // توليد أزرار الفهرس
         for (const key in lessons) {
@@ -517,6 +839,7 @@
             btnElement.classList.add('active');
 
             welcomeMsg.style.display = 'none';
+            examContent.style.display = 'none';
             lessonContent.style.display = 'block';
 
             currentCode = lessons[lessonKey].code;
@@ -536,6 +859,90 @@
                     btn.style.background = 'linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%)';
                 }, 2000);
             });
+        }
+
+        // ================== منطق الاختبار النهائي ==================
+        function showExamInterface() {
+            document.querySelectorAll('.lesson-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.exam-sidebar-btn').classList.add('active');
+
+            welcomeMsg.style.display = 'none';
+            lessonContent.style.display = 'none';
+            examContent.style.display = 'block';
+
+            resetExamToStart();
+        }
+
+        function resetExamToStart() {
+            examStartBox.style.display = 'block';
+            examQuestionBox.style.display = 'none';
+            examResultBox.style.display = 'none';
+            studentNameInput.value = '';
+        }
+
+        function startExam() {
+            const inputVal = studentNameInput.value.trim();
+            if (inputVal === "") {
+                alert("الرجاء كتابة اسمك الثلاثي لتبدأ الاختبار!");
+                return;
+            }
+
+            studentName = inputVal;
+            currentQuestionIdx = 0;
+            correctAnswersCount = 0;
+            wrongAnswersCount = 0;
+
+            examStartBox.style.display = 'none';
+            examQuestionBox.style.display = 'block';
+            examResultBox.style.display = 'none';
+
+            loadCurrentQuestion();
+        }
+
+        function loadCurrentQuestion() {
+            const qData = examQuestions[currentQuestionIdx];
+            questionProgress.textContent = `السؤال ${currentQuestionIdx + 1} من ${examQuestions.length}`;
+            questionText.textContent = qData.q;
+
+            optionsContainer.innerHTML = '';
+
+            qData.opts.forEach((optText, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'exam-option-btn';
+                btn.innerHTML = `<span>${optText}</span> <span>👈</span>`;
+                btn.onclick = () => selectAnswer(optIdx);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(selectedIdx) {
+            const qData = examQuestions[currentQuestionIdx];
+
+            if (selectedIdx === qData.correct) {
+                correctAnswersCount++;
+            } else {
+                wrongAnswersCount++;
+            }
+
+            currentQuestionIdx++;
+
+            if (currentQuestionIdx < examQuestions.length) {
+                loadCurrentQuestion();
+            } else {
+                finishExam();
+            }
+        }
+
+        function finishExam() {
+            examQuestionBox.style.display = 'none';
+            examResultBox.style.display = 'block';
+
+            document.getElementById('displayStudentName').textContent = `الاسم: ${studentName}`;
+            document.getElementById('displayCorrectCount').textContent = `✅ الإجابات الصحيحة: ${correctAnswersCount}`;
+            document.getElementById('displayWrongCount').textContent = `❌ الإجابات الخاطئة: ${wrongAnswersCount}`;
+
+            const finalScore = correctAnswersCount * 2; // كل سؤال بـ 2 درجات
+            document.getElementById('displayFinalScore').textContent = `الدرجة النهائية: ${finalScore} / 100`;
         }
     </script>
 </body>
