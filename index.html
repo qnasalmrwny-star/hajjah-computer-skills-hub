@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المكتبة الملكية لمهارات الحاسوب | الأزرق الملكي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,700&family=Cairo:wght@400;600;700;800&display=swap');
+
+        :root {
+            --bg-color: #f8fafc;
+            --sidebar-bg: #ffffff;
+            --royal-blue: #0f2b5c;
+            --royal-dark: #0a192f;
+            --royal-accent: #1d4ed8;
+            --royal-light-blue: #eff6ff;
+            --royal-border: #93c5fd;
+            --text-dark: #0f172a;
+            --code-bg: #091322;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#cbd5e1 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+            color: var(--text-dark);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            direction: rtl;
+        }
+
+        /* الواجهة الرئيسية (على اليمين) */
+        .main-content {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* البانر الملكي العلوي الأزرق والأبيض */
+        .royal-banner {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 50%, #e0f2fe 100%);
+            border: 2px solid var(--royal-accent);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(29, 78, 216, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        .royal-crown-badge {
+            font-size: 2.2rem;
+            margin-bottom: 2px;
+            filter: drop-shadow(0 4px 8px rgba(29, 78, 216, 0.3));
+        }
+
+        .blue-title-large {
+            background: linear-gradient(135deg, #0a192f 0%, #0f2b5c 35%, #1d4ed8 70%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Amiri', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .royal-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px 0;
+            color: var(--royal-accent);
+            font-size: 0.9rem;
+        }
+
+        .royal-divider::before, .royal-divider::after {
+            content: '';
+            height: 2px;
+            width: 90px;
+            background: linear-gradient(90deg, transparent, var(--royal-accent), transparent);
+        }
+
+        /* أسماء المهندس والدكتور بالخط الكبير والزخرفة الملكية الزرقاء */
+        .author-card {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .author-name {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            background: rgba(29, 78, 216, 0.08);
+            padding: 4px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--royal-border);
+            display: inline-block;
+        }
+
+        .supervisor-name {
+            font-family: 'Amiri', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--royal-blue);
+            margin-top: 2px;
+        }
+
+        /* الواجهة الفرعية الجانبية باللون الأزرق والكتل البيضاء */
+        .sidebar {
+            width: 220px;
+            min-width: 180px;
+            max-width: 240px;
+            background-color: var(--sidebar-bg);
+            padding: 18px 10px;
+            box-shadow: -4px 0 20px rgba(15, 43, 92, 0.08);
+            overflow-y: auto;
+            border-right: 2px solid var(--royal-border);
+            order: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-family: 'Amiri', serif;
+            color: var(--royal-blue);
+            border-bottom: 2px solid var(--royal-border);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .lesson-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            color: var(--text-dark);
+            border: 1px solid var(--royal-border);
+            padding: 11px 8px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .lesson-btn:hover {
+            border-color: var(--royal-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
+            background: #eff6ff;
+            color: var(--royal-blue);
+        }
+
+        .lesson-btn.active {
+            background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%);
+            border-color: #0a192f;
+            color: #ffffff;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(15, 43, 92, 0.35);
+        }
+
+        /* تنسيق مربع الاختصارات والصيغ (أزرق غامق ملكي) */
+        .code-container {
+            background-color: var(--code-bg);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            margin-bottom: 20px;
+            border: 2px solid var(--royal-accent);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18), 0 0 15px rgba(29, 78, 216, 0.2);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(147, 197, 253, 0.3);
+        }
+
+        .code-title {
+            color: #bfdbfe;
+            font-size: 0.95rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        pre {
+            margin: 0;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: #e2e8f0;
+            overflow-x: auto;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%);
+            color: #ffffff;
+            border: 1px solid #93c5fd;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.4);
+        }
+
+        /* صندوق الشرح والدروس التفصيلية */
+        .explanation-box {
+            background-color: var(--card-bg);
+            padding: 22px;
+            border-radius: 12px;
+            border-right: 5px solid var(--royal-accent);
+            line-height: 1.85;
+            font-size: 0.95rem;
+            border: 1px solid var(--royal-border);
+            box-shadow: 0 6px 20px rgba(15, 43, 92, 0.06);
+            position: relative;
+        }
+
+        .explanation-box h3 {
+            color: var(--royal-blue);
+            font-family: 'Amiri', serif;
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+            border-bottom: 1px dashed var(--royal-border);
+            padding-bottom: 6px;
+        }
+
+        .explanation-box ul {
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        .explanation-box li {
+            margin-bottom: 8px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-top: 5%;
+            padding: 35px;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 1px dashed var(--royal-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            color: #334155;
+            font-size: 1.05rem;
+        }
+
+        /* تحسين العرض للهواتف المحمولة */
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 140px;
+                padding: 12px 5px;
+            }
+            .lesson-btn {
+                font-size: 0.78rem;
+                padding: 9px 4px;
+            }
+            .main-content {
+                padding: 12px;
+            }
+            .blue-title-large {
+                font-size: 1.35rem;
+            }
+            .author-name {
+                font-size: 1.1rem;
+            }
+            .supervisor-name {
+                font-size: 1rem;
+            }
+            pre {
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الواجهة الرئيسية (على اليمين) -->
+    <div class="main-content">
+        
+        <!-- البانر التكريمي الملكي الأزرق والأبيض -->
+        <div class="royal-banner">
+            <div class="royal-crown-badge">👑</div>
+            <h1 class="blue-title-large">المكتبة الملكية الشاملة لمهارات الحاسوب</h1>
+            
+            <div class="author-card">
+                <div class="author-name">✨ تم إعداد هذا الموقع من قبل المهندس / يوسف وليد المروني ✨</div>
+                <div class="supervisor-name">👑 تحت إشراف الدكتور / حسن العليي 👑</div>
+            </div>
+
+            <div class="royal-divider">✦ 🔷 مرجع تطبيقات الحاسوب والمهارات المكتبية من الصفر للاحتراف 🔷 ✦</div>
+        </div>
+
+        <!-- منطقة عرض الدرس -->
+        <div id="contentArea">
+            <div class="welcome-message" id="welcomeMsg">
+                👑 <b>أهلاً بكم في الدليل التطبيقي الكامل لمهارات الحاسوب والبرامج المكتبية.</b><br>
+                <small style="color: #475569; margin-top: 10px; display: inline-block;">👈 اختر درساً من الفهرس الجانبي لعرض الاختصارات والشرح المكثف خطوة بخطوة.</small>
+            </div>
+            
+            <div id="lessonContent" style="display: none;">
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="code-title">👑 الاختصارات والخطوات السريعة (Cheat Sheet)</span>
+                        <button class="copy-btn" onclick="copyCode()">✨ نسخ الاختصارات</button>
+                    </div>
+                    <pre><code id="codeBlock"></code></pre>
+                </div>
+                <div class="explanation-box" id="explanationBlock">
+                    <!-- الشرح الشامل سيظهر هنا -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الواجهة الفرعية (القائمة الجانبية) -->
+    <div class="sidebar">
+        <h2>👑 فهرس المهارات</h2>
+        <div id="buttonsList"></div>
+    </div>
+
+    <script>
+        // منهجية دروس مهارات الحاسوب المكثفة والمبوبة بالترتيب
+        const lessons = {
+            "lesson1": {
+                title: "1. أساسيات Windows والملفات",
+                code: "Ctrl + Shift + N  : إنشاء مجلد جديد\nF2                : إعادة تسمية المجلد/الملف\nDelete            : نقل إلى سلة المهملات\nShift + Delete    : حذف نهائي دون سلة المهملات\nAlt + Tab         : التنقل السريع بين النوافذ",
+                explanation: "<h3>📜 الشرح المكثف لإدارة نظام Windows والملفات:</h3>" +
+                    "<b>مقدمة في نظام التشغيل:</b> هو البرنامج الرئيسي الذي يدير المكونات المادية (Hardware) والبرمجيات (Software).<br><br>" +
+                    "<b>الخطوات الأساسية للتنظيم الاحترافي:</b><br>" +
+                    "1. <b>إنشاء مجلد منظم:</b> اضغط بالزر الأيمن للمؤشر في أي مكان فارغ ➔ اختر <code>جديد (New)</code> ➔ اختر <code>مجلد (Folder)</code>.<br>" +
+                    "2. <b>الترتيب والأرشفة:</b> يفضل دائماً تقسيم القرص الصلب لعدة أقسام (مثل C للبرامج، D للجامعة والدراسة) وتحديد أسماء واضحة لكل مجلد.<br>" +
+                    "3. <b>امتدادات الملفات (File Extensions):</b> هي الحروف التي تأتي بعد النقطة وتحدد نوع الملف، مثل:<br>" +
+                    "   • <code>.docx</code> : مستندات مايكروسوفت وورد.<br>" +
+                    "   • <code>.xlsx</code> : جداول بيانات إكسل.<br>" +
+                    "   • <code>.pptx</code> : عروض تقديمية باوربوينت.<br>" +
+                    "   • <code>.pdf</code> : ملفات نصية محصنة غير قابلة للتعديل المباشر."
+            },
+            "lesson2": {
+                title: "2. الاختصارات والتحديد السريع",
+                code: "Ctrl + A  : تحديد جميع العناصر/النصوص\nCtrl + C  : نسخ (Copy)\nCtrl + X  : قص (Cut)\nCtrl + V  : لصق (Paste)\nCtrl + Z  : تراجع عن آخر عمل (Undo)\nCtrl + Y  : إعادة العمل المتراجع عنه (Redo)",
+                explanation: "<h3>📜 الشرح المكثف للتحكم وااختصارات لوحة المفاتيح:</h3>" +
+                    "<b>أهمية الاختصارات:</b> اختصار الوقت وزيادة الإنتاجية والسرعة أثناء كتابة البحوث والتعامل مع البيانات.<br><br>" +
+                    "<b>تحديد العناصر الاحترافي:</b><br>" +
+                    "• <b>تحديد عناصر متجاورة:</b> اضغط على العنصر الأول، ثم اضغط باستمرار على زر <code>Shift</code> واضغط على العنصر الأخير.<br>" +
+                    "• <b>تحديد عناصر متباعدة:</b> اضغط باستمرار على زر <code>Ctrl</code> وانقر بالفأرة على العناصر التي تريد تحديدها واحداً تلو الآخر.<br>" +
+                    "• <b>البحث السريع:</b> استخدم <code>Ctrl + F</code> للبحث عن أي كلمة أو ملف داخل المجلد أو المستند."
+            },
+            "lesson3": {
+                title: "3. وورد: تنسيق النصوص والخطوط",
+                code: "Ctrl + B  : جعل النص عريض ومظلل (Bold)\nCtrl + I  : جعل النص مائل (Italic)\nCtrl + U  : وضع خط تحت النص (Underline)\nCtrl + E  : محاذاة النص في المنتصف (Center)\nCtrl + R  : محاذاة جهة اليمين (Right)\nCtrl + L  : محاذاة جهة اليسار (Left)",
+                explanation: "<h3>📜 الشرح المكثف لتنسيق النصوص في Word:</h3>" +
+                    "<b>خطوات تنسيق الأبحاث والتقارير الأكاديمية:</b><br>" +
+                    "1. <b>تحديد نوع الخط:</b> للأبحاث باللغة العربية يُفضل استخدام خطوط رسمية مثل <code>Traditional Arabic</code> أو <code>Simplified Arabic</code> أو <code>Cairo</code>.<br>" +
+                    "2. <b>أحجام الخطوط القياسية:</b><br>" +
+                    "   • العناوين الرئيسية: حجم <code>18</code> عريض (Bold).<br>" +
+                    "   • العناوين الفرعية: حجم <code>16</code> عريض (Bold).<br>" +
+                    "   • نصوص الفقرات: حجم <code>14</code> عادي.<br>" +
+                    "3. <b>ضبط تباعد الأسطر (Line Spacing):</b> من تبويب <code>الصفحة الرئيسية (Home)</code> ➔ اختر تباعد الأسطر بـ <code>1.15</code> أو <code>1.5</code> ليعطي مظهرًا أكاديمياً مريحاً للعين."
+            },
+            "lesson4": {
+                title: "4. وورد: الجداول والصور",
+                code: "تنسيق الجدول: من تبويب (تصميم الجدول - Table Design)\nإدراج صورة  : إدراج (Insert) -> صور (Pictures)\nالتفاف النص  : مشدود (Tight) لسهولة تحريك الصورة بحرية",
+                explanation: "<h3>📜 الشرح المكثف لإدراج الجداول والصور في Word:</h3>" +
+                    "<b>أولاً: التعامل مع الجداول (Tables):</b><br>" +
+                    "1. اذهب إلى قائمة <code>إدراج (Insert)</code> ➔ اختر <code>جدول (Table)</code> وحدد عدد الأعمدة والصفوف.<br>" +
+                    "2. لتنسيق الجدول بشكل جذاب: حدد الجدول ثم اختر نمطاً جاهزاً من تبويب <code>تصميم الجدول (Table Design)</code>.<br>" +
+                    "3. لمحاذاة النص داخل الخلايا في المنتصف تماماً: اضغط بزر الماوس الأيمن ➔ اختر <code>محاذاة الخلية (Cell Alignment)</code> ➔ اختر المنتصف.<br><br>" +
+                    "<b>ثانياً: التعامل مع الصور والجرافيك:</b><br>" +
+                    "1. عند إدراج صورة، اضغط عليها واذهب إلى خيار <code>التفاف النص (Wrap Text)</code> واختر <code>مشدود (Tight)</code> أو <code>أمام النص</code> لتحريك الصورة بأي مكان بالماوس بسهولة دون تخريب الأسطر."
+            },
+            "lesson5": {
+                title: "5. وورد: الغلاف والفهرس الآلي",
+                code: "صفحة غلاف جاهزة : إدراج (Insert) -> صفحة غلاف (Cover Page)\nفاصل صفحات      : Ctrl + Enter\nالفهرس التلقائي  : مراجع (References) -> جدول المحتويات (Table of Contents)",
+                explanation: "<h3>📜 الشرح المكثف لإعداد البحوث الاحترافية بالفهرس التلقائي:</h3>" +
+                    "<b>خطوات إنشاء فهرس المحتويات الآلي (Table of Contents):</b><br>" +
+                    "1. <b>تطبيق أنماط العناوين:</b> حدد كل عنوان رئيسي في بحثك واضغط على <code>عنوان 1 (Heading 1)</code> من القائمة العلوية. وحدد العناوين الفرعية واضغط على <code>عنوان 2 (Heading 2)</code>.<br>" +
+                    "2. <b>إنشاء الفهرس بضغطة زر:</b> اذهب إلى صفحة فارغة ➔ اختر تبويب <code>مراجع (References)</code> ➔ اضغط على <code>جدول المحتويات (Table of Contents)</code> واختر الجدول الآلي الأول.<br>" +
+                    "3. <b>تحديث الفهرس تلقائياً:</b> إذا أضفت صفحات أو عناوين جديدة مستقبلاً، اضغط بالزر الأيمن على الفهرس واختر <code>تحديث الحقل (Update Field)</code> لتتحدث أرقام الصفحات تلقائياً دون كتابة يدوية!"
+            },
+            "lesson6": {
+                title: "6. إكسل: الجداول وتنسيق الخلايا",
+                code: "Ctrl + N  : فتح مصنف إكسل جديد (New Workbook)\nShift + F11: إضافة ورقة عمل جديدة (New Sheet)\nدمج الخلايا: دمج وتوسيط (Merge & Center)\nالتفاف النص: Wrap Text لعرض النص الطويل داخل الخلية",
+                explanation: "<h3>📜 الشرح المكثف لأساسيات Microsoft Excel:</h3>" +
+                    "<b>المفاهيم الرئيسية في إكسل:</b><br>" +
+                    "• يتكون إكسل من <b>أعمدة (Columns)</b> تُسمى بالأحرف (A, B, C...) و<b>صفوف (Rows)</b> تُسمى بالأرقام (1, 2, 3...).<br>" +
+                    "• تقاطع العمود مع الصف يُشكل <b>الخلية (Cell)</b> مثل الخلية <code>A1</code> أو <code>B5</code>.<br><br>" +
+                    "<b>خطوات إنشاء جدول بيانات متناسق:</b><br>" +
+                    "1. حدد نطاق الخلايا المطلوبة ➔ من تبويب <code>الصفحة الرئيسية (Home)</code> اضغط على خيار <code>الحدود (Borders)</code> واختر <code>كافة الحدود (All Borders)</code>.<br>" +
+                    "2. تمييز صف العناوين: حدد الصف الأول وأعطه لون تعبئة أزرق دافئ وتنسيق عريض (Bold).<br>" +
+                    "3. لتعديل عرض العمود ليتناسب مع النص تلقائياً: اضغط مرتين مزدوجتين بالماوس (Double Click) على الخط الفاصل بين حرفي العمودين في الأعلى."
+            },
+            "lesson7": {
+                title: "7. إكسل: الدوال الحسابية الأساسية",
+                code: "=SUM(A1:A10)     : دالة الجمع التلقائي لحساب المجموع\n=AVERAGE(A1:A10) : دالة المتوسط الحسابي\n=MAX(A1:A10)     : دالة استخراج أعلى قيمة\n=MIN(A1:A10)     : دالة استخراج أقل قيمة\n=COUNT(A1:A10)   : دالة عد الخلايا الرقمية",
+                explanation: "<h3>📜 الشرح المكثف للدوال الأساسية في Excel:</h3>" +
+                    "<b>قاعدة ذهبية في إكسل:</b> أي صيغة أو دالة حسابية يجب أن تبدأ دائماً بعلامة <code>=</code> وإلا سيتعامل معها إكسل كنص عادي!<br><br>" +
+                    "<b>تطبيق الدوال خطوة بخطوة:</b><br>" +
+                    "1. <b>دالة الجمع =SUM:</b> لحساب مجموع درجات طالب، اكتب في الخلية <code>=SUM(B2:E2)</code> واضغط Enter.<br>" +
+                    "2. <b>دالة المتوسط =AVERAGE:</b> لحساب معدل درجات المواد اكتب <code>=AVERAGE(B2:E2)</code>.<br>" +
+                    "3. <b>النسخ التلقائي للصيغ (AutoFill):</b> بدلاً من إعادة كتابة المعادلة لكل طالب، ضع مؤشر الماوس على الزاوية اليسرى السفلية للخلية حتى يتحول لرمز زائد أسود <code>+</code> ثم اسحب لأسفل لتطبق المعادلة على جميع الطلاب فوراً!"
+            },
+            "lesson8": {
+                title: "8. إكسل: الدالة الشرطية IF",
+                code: "صيغة الدالة الشائعة:\n=IF(Logical_Test, Value_if_true, Value_if_false)\n\nمثال تقدير الناجح والراسب:\n=IF(B2>=50, \"ناجح\", \"راسب\")",
+                explanation: "<h3>📜 الشرح المكثف لدالة اتخاذ القرار =IF الشرطية:</h3>" +
+                    "<b>وظيفة دالة IF:</b> تقوم بفحص شرط معين؛ إذا تحقق الشرط تُرجع نتيجة أعدتها أنت مسبقاً، وإذا لم يتحقق تُرجع نتيجة أخرى.<br><br>" +
+                    "<b>مكونات الدالة الثلاثة:</b><br>" +
+                    "1. <b>الشرط (Logical Test):</b> مثل مقارنة درجة الطالب <code>B2 >= 50</code>.<br>" +
+                    "2. <b>قيمة النجاح (Value if true):</b> الكلمة أو القيمة التي تظهر عند تحقق الشرط مثل <code>\"ناجح\"</code>.<br>" +
+                    "3. <b>قيمة الرسوب (Value if false):</b> الكلمة التي تظهر عند عدم تحققه مثل <code>\"راسب\"</code>.<br>" +
+                    "• <i>تنبيه هام:</i> النصوص داخل معامَلات الدوال في إكسل يجب وضعها بين علامتي تنصيص <code>\" \"</code>."
+            },
+            "lesson9": {
+                title: "9. إكسل: التنسيق الشرطي والمخططات",
+                code: "التنسيق الشرطي : الصفحة الرئيسية -> التنسيق الشرطي (Conditional Formatting)\nإدراج رسم بياني: إدراج (Insert) -> المخططات الموصى بها (Recommended Charts)\nمخطط الأعمدة   : Column / Bar Chart",
+                explanation: "<h3>📜 الشرح المكثف للتنسيق الشرطي والرسم البياني:</h3>" +
+                    "<b>أولاً: التنسيق الشرطي (Conditional Formatting):</b><br>" +
+                    "تلوين الخلايا تلقائياً بناءً على قيمتها (مثلاً: تلوين درجات الراسبين بالأحمر والناجحين بالأخضر/الأزرق).<br>" +
+                    "• <i>الخطوات:</i> حدد عمود الدرجات ➔ اضغط على <code>تنسيق شرطي</code> ➔ اختر <code>قواعد تمييز الخلايا</code> ➔ اختر <code>أصغر من (Less than)</code> ➔ اكتب 50 واختر اللون الأحمر.<br><br>" +
+                    "<b>ثانياً: إنشاء المخططات البيانية (Charts):</b><br>" +
+                    "تحويل الأرقام إلى رسومات بيانية مرئية يسهل فهمها في العروض الأكاديمية.<br>" +
+                    "• <i>الخطوات:</i> حدد أسماء الطلاب والدرجات ➔ اذهب لقائمة <code>إدراج (Insert)</code> ➔ اختر رسم بياني شريطي <code>Column Chart</code>."
+            },
+            "lesson10": {
+                title: "10. باوربوينت: تصميم الشرائح",
+                code: "Ctrl + M     : إضافة شرائح جديدة (New Slide)\nF5           : بدء العرض التقديمي من البداية (Start Slideshow)\nShift + F5   : بدء العرض من الشريحة الحالية\nEsc          : الخروج من وضع عرض الشرائح",
+                explanation: "<h3>📜 الشرح المكثف لتصميم العروض في PowerPoint:</h3>" +
+                    "<b>قواعد العرض التقديمي الأكاديمي الناجح:</b><br>" +
+                    "1. <b>قاعدة 6×6:</b> لا تضع أكثر من 6 أسطر في الشريحة الواحدة، ولا يزيد السطر عن 6 كلمات لتجنب الازدحام.<br>" +
+                    "2. <b>اختيار النسق (Design Theme):</b> اذهب لتبويب <code>تصميم (Design)</code> واختر نسقاً هادئاً وبسيطاً يتناسب مع موضوع العرض.<br>" +
+                    "3. <b>التباين في الألوان:</b> استخدم خطوطاً غامقة على خلفية فاتحة أو خطوطاً فاتحة على خلفية غامقة لضمان وضوح الشاشة للجمهور."
+            },
+            "lesson11": {
+                title: "11. باوربوينت: الحركات والانتقالات",
+                code: "الانتقالات (Transitions) : الحركة بين شريحة وأخرى\nالحركات (Animations)    : الحركة للعناصر والأشكال داخل الشريحة نفسها\nخيارات التأثير          : Effect Options لتعديل اتجاه الحركة",
+                explanation: "<h3>📜 الشرح المكثف للحركات والمؤثرات في PowerPoint:</h3>" +
+                    "<b>1. انتقالات الشرائح (Transitions):</b><br>" +
+                    "هي المؤثر البصري الذي يظهر أثناء الانتقال من شريحة إلى الشريحة التي تليها.<br>" +
+                    "• <i>التطبيق:</i> اختر الشريحة ➔ اذهب لتبويب <code>انتقالات (Transitions)</code> ➔ اختر حركة هادئة مثل <code>تلاشي (Fade)</code> أو <code>تضئيل</code>.<br><br>" +
+                    "<b>2. حركات العناصر (Animations):</b><br>" +
+                    "تحريك النصوص والصور داخل الشريحة لتظهر خطوة بخطوة أثناء الشرح.<br>" +
+                    "• <i>التطبيق:</i> حدد النص أو الصورة ➔ اذهب لتبويب <code>حركات (Animations)</code> ➔ اختر حركة دخول مثل <code>ظهور (Appear)</code> أو <code>تحرك للداخل (Fly In)</code>."
+            },
+            "lesson12": {
+                title: "12. البحث الأكاديمي والإنترنت",
+                code: "البحث عن ملفات PDF مباشرة  : filetype:pdf اسم_البحث\nالبحث في محرك البحث العلمي: scholar.google.com\nحفظ الملف كـ PDF من Word   : F12 -> اختيار النوع PDF",
+                explanation: "<h3>📜 الشرح المكثف لمهارات البحث العلمي وأمن المعلومات:</h3>" +
+                    "<b>مهارات البحث الأكاديمي الذكي:</b><br>" +
+                    "1. <b>البحث المتقدم بالصيغ:</b> للحصول على مراجع أو أبحاث جاهزة بصيغة ملفات PDF مباشرة، اكتب في جوجل:<br>" +
+                    "   <code>filetype:pdf مهارات الحاسوب</code><br>" +
+                    "2. <b>محرك الباحث العلمي (Google Scholar):</b> أفضل مرجع معتمد للوصول إلى أوراق بحثية ومقالات علمية معتمدة ورسمية.<br>" +
+                    "3. <b>حماية وحفظ الملفات:</b> لحماية أبحاثك من التعديل قبل إرسالها للدكتور، قم بتصدير الملف بصيغة PDF عبر الضغط على <code>F12</code> واختيار النوع <code>PDF</code>."
+            }
+        };
+
+        const buttonsList = document.getElementById('buttonsList');
+        const welcomeMsg = document.getElementById('welcomeMsg');
+        const lessonContent = document.getElementById('lessonContent');
+        const codeBlock = document.getElementById('codeBlock');
+        const explanationBlock = document.getElementById('explanationBlock');
+        let currentCode = "";
+
+        // توليد أزرار الفهرس
+        for (const key in lessons) {
+            const btn = document.createElement('button');
+            btn.className = 'lesson-btn';
+            btn.textContent = lessons[key].title;
+            btn.onclick = () => showLesson(key, btn);
+            buttonsList.appendChild(btn);
+        }
+
+        function showLesson(lessonKey, btnElement) {
+            document.querySelectorAll('.lesson-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            welcomeMsg.style.display = 'none';
+            lessonContent.style.display = 'block';
+
+            currentCode = lessons[lessonKey].code;
+            codeBlock.textContent = currentCode;
+            explanationBlock.innerHTML = lessons[lessonKey].explanation;
+        }
+
+        function copyCode() {
+            navigator.clipboard.writeText(currentCode).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✔️ تم نسخ الاختصارات';
+                btn.style.background = 'linear-gradient(135deg, #1d4ed8, #2563eb)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #2563eb 100%)';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
